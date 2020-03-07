@@ -1,0 +1,27 @@
+{
+  "name": "fanuc-robot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "start-dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/piupalii/fanuc-robot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/piupalii/fanuc-robot/issues"
+  },
+  "homepage": "https://github.com/piupalii/fanuc-robot#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
+}
