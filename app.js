@@ -1,6 +1,5 @@
 const axios = require('axios');
-
-
+const mqtt = require('mqtt');
 
 const main_loop = () => {
     setTimeout(() => {
@@ -19,11 +18,26 @@ const main_loop = () => {
                     if (count > 6) break;
                     const value = parseFloat(match[1]);
                     joints.push(value)
-                }                
+                };                
+                
+                let data = {
+                    time: time_stamp,
+                    joints: joints
+                };
+                mqtt_client.publish('joints', JSON.stringify(data));
+
                 console.log(start_time_stamp, joints, delta, 'ms');
             });
 
         main_loop();
     }, 10);
 }
-main_loop();
+
+
+const mqtt_client = mqtt.connect('wss://pve-mqtt-broker.herokuapp.com/');
+mqtt_client.on('connect', () => {
+ console.log('connected to mqtt broker');
+ main_loop();
+});
+
+
